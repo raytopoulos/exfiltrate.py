@@ -9,9 +9,13 @@ parser = argparse.ArgumentParser(description="Dump active window control tree")
 parser.add_argument('--debug', action='store_true', help="Enable debug mode and store results in debug.json unless --file is specified")
 parser.add_argument('--file', type=str, help="Path to save the JSON file")
 parser.add_argument('--mute', action='store_true', help="Mute all console output")
+parser.add_argument('--version', action='store_true', help="display tool version")
 args = parser.parse_args()
 
-debug, save_file, mute = args.debug, args.file, args.mute
+debug, save_file, mute,version = args.debug, args.file, args.mute, args.version
+
+if version:
+    print("0.1.1")
 
 if mute:
     print = lambda *a, **k: None  # Override print
@@ -119,3 +123,4 @@ if debug or save_file:
         print(f"Control tree saved to: {path}")
     except Exception as e:
         print(f"Failed to save file: {e}")
+
