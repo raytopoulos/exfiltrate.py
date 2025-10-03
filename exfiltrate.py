@@ -15,7 +15,8 @@ args = parser.parse_args()
 debug, save_file, mute,version = args.debug, args.file, args.mute, args.version
 
 if version:
-    print("0.1.1")
+    print("0.1.2")
+    exit()
 
 if mute:
     print = lambda *a, **k: None  # Override print
@@ -123,4 +124,5 @@ if debug or save_file:
         print(f"Control tree saved to: {path}")
     except Exception as e:
         print(f"Failed to save file: {e}")
+
 
